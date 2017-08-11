@@ -67,27 +67,41 @@ class ViewController: UIViewController, MKMapViewDelegate, SceneLocationViewDele
         
         
         
-//        //Currently set to Canary Wharf
-//        let pinCoordinate = CLLocationCoordinate2D(latitude: 37.777146, longitude: -122.389519)
-//        let pinLocation = CLLocation(coordinate: pinCoordinate, altitude: 0)
-//        let pinImage = UIImage(named: "Stage1")!
-//        let pinLocationNode = LocationAnnotationNode(location: pinLocation, image: pinImage)
-//        pinLocationNode.scaleRelativeToDistance = false
-//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode)
-//
-//        let pinCoordinate1 = CLLocationCoordinate2D(latitude: 37.779028, longitude: -122.390141)
-//        let pinLocation1 = CLLocation(coordinate: pinCoordinate1, altitude: 0)
-//        let pinImage1 = UIImage(named: "Stage2")!
-//        let pinLocationNode1 = LocationAnnotationNode(location: pinLocation1, image: pinImage1)
-//        pinLocationNode1.scaleRelativeToDistance = false
-//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode1)
-//
-//        let pinCoordinate2 = CLLocationCoordinate2D(latitude: 37.779723, longitude: -122.392652)
-//        let pinLocation2 = CLLocation(coordinate: pinCoordinate2, altitude: 0)
-//        let pinImage2 = UIImage(named: "Stage3")!
-//       let pinLocationNode2 = LocationAnnotationNode(location: pinLocation2, image: pinImage2)
-//        pinLocationNode1.scaleRelativeToDistance = false
-//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode2)
+        //Currently set to Canary Wharf
+        let pinCoordinate = CLLocationCoordinate2D(latitude: 37.777146, longitude: -122.389519)
+        let pinLocation = CLLocation(coordinate: pinCoordinate, altitude: 0)
+        let pinImage = UIImage(named: "Stage1")!
+        let pinLocationNode = LocationAnnotationNode(location: pinLocation, image: pinImage)
+        pinLocationNode.scaleRelativeToDistance = true
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode)
+
+        let pinCoordinate1 = CLLocationCoordinate2D(latitude: 37.779028, longitude: -122.390141)
+        let pinLocation1 = CLLocation(coordinate: pinCoordinate1, altitude: 0)
+        let pinImage1 = UIImage(named: "Stage2")!
+        let pinLocationNode1 = LocationAnnotationNode(location: pinLocation1, image: pinImage1)
+        pinLocationNode1.scaleRelativeToDistance = true
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode1)
+
+        let pinCoordinate2 = CLLocationCoordinate2D(latitude: 37.779723, longitude: -122.392652)
+        let pinLocation2 = CLLocation(coordinate: pinCoordinate2, altitude: 0)
+        let pinImage2 = UIImage(named: "Stage3")!
+        let pinLocationNode2 = LocationAnnotationNode(location: pinLocation2, image: pinImage2)
+        pinLocationNode1.scaleRelativeToDistance = false
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode2)
+        
+        let pinCoordinate3 = CLLocationCoordinate2D(latitude: 37.769743, longitude: -122.485961)
+        let pinLocation3 = CLLocation(coordinate: pinCoordinate3, altitude: 0)
+        let pinImage3 = UIImage(named: "Stage4")!
+        let pinLocationNode3 = LocationAnnotationNode(location: pinLocation3, image: pinImage3)
+        pinLocationNode1.scaleRelativeToDistance = false
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode3)
+        
+        let pinCoordinate4 = CLLocationCoordinate2D(latitude: 37.770371, longitude:  -122.488729)
+        let pinLocation4 = CLLocation(coordinate: pinCoordinate4, altitude: 0)
+        let pinImage4 = UIImage(named: "Stage5")!
+        let pinLocationNode4 = LocationAnnotationNode(location: pinLocation4, image: pinImage4)
+        pinLocationNode1.scaleRelativeToDistance = false
+        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode4)
         
         view.addSubview(sceneLocationView)
         
@@ -231,51 +245,51 @@ class ViewController: UIViewController, MKMapViewDelegate, SceneLocationViewDele
     
     var starterNum = 1
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        if let touch = touches.first {
-            if touch.view != nil {
-                if (mapView == touch.view! ||
-                    mapView.recursiveSubviews().contains(touch.view!)) {
-                    centerMapOnUserLocation = false
-                } else {
-                    
-                    let location = touch.location(in: self.view)
-
-                    if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
-                        print("left side of the screen")
-                        sceneLocationView.moveSceneHeadingAntiClockwise()
-                    } else if location.x >= view.frame.size.width - 40 && adjustNorthByTappingSidesOfScreen {
-                        print("right side of the screen")
-                        sceneLocationView.moveSceneHeadingClockwise()
-                    } else {
-                        
-                        if(starterNum == 6){
-                            starterNum = 1
-                        }
-                        
-                        let image = UIImage(named: "Stage"+String(starterNum))!
-                        
-                        starterNum += 1
-                        let annotationNode = LocationAnnotationNode(location: nil, image: image)
-                        annotationNode.scaleRelativeToDistance = true
-                        sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
-                        
-//                        let image = UIImage(named: "Stage"+String(starterNum))!
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        
+//        if let touch = touches.first {
+//            if touch.view != nil {
+//                if (mapView == touch.view! ||
+//                    mapView.recursiveSubviews().contains(touch.view!)) {
+//                    centerMapOnUserLocation = false
+//                } else {
+//                    
+//                    let location = touch.location(in: self.view)
 //
+//                    if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
+//                        print("left side of the screen")
+//                        sceneLocationView.moveSceneHeadingAntiClockwise()
+//                    } else if location.x >= view.frame.size.width - 40 && adjustNorthByTappingSidesOfScreen {
+//                        print("right side of the screen")
+//                        sceneLocationView.moveSceneHeadingClockwise()
+//                    } else {
+//                        
+//                        if(starterNum == 6){
+//                            starterNum = 1
+//                        }
+//                        
+//                        let image = UIImage(named: "Stage"+String(starterNum))!
+//                        
 //                        starterNum += 1
 //                        let annotationNode = LocationAnnotationNode(location: nil, image: image)
-//                        annotationNode.scaleRelativeToDistance = false
+//                        annotationNode.scaleRelativeToDistance = true
 //                        sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
-                        
-                        
-                        
-                    }
-                }
-            }
-        }
-    }
+//                        
+////                        let image = UIImage(named: "Stage"+String(starterNum))!
+////
+////                        starterNum += 1
+////                        let annotationNode = LocationAnnotationNode(location: nil, image: image)
+////                        annotationNode.scaleRelativeToDistance = false
+////                        sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
+//                        
+//                        
+//                        
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     //MARK: MKMapViewDelegate
     

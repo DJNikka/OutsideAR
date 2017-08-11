@@ -28,15 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        self.window!.makeKeyAndVisible()
-        
-        let vc = ViewController()
-        
-        self.window!.rootViewController = vc
-        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//        self.window!.makeKeyAndVisible()
+//
+//        let vc = ViewController()
+//
+//        self.window!.rootViewController = vc
+//
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
