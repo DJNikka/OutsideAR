@@ -83,12 +83,13 @@ class ViewController: UIViewController, MKMapViewDelegate, SceneLocationViewDele
         pinLocationNode1.scaleRelativeToDistance = true
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode1)
         
-        let pinCoordinate2 = CLLocationCoordinate2D(latitude: 37.779723, longitude: -122.392652)
+        let pinCoordinate2 = CLLocationCoordinate2D(latitude: 37.769794, longitude: -122.483386)
         let pinLocation2 = CLLocation(coordinate: pinCoordinate2, altitude: 0)
         let pinImage2 = UIImage(named: "Stage3")!
         let pinLocationNode2 = LocationAnnotationNode(location: pinLocation2, image: pinImage2)
         pinLocationNode1.scaleRelativeToDistance = true
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode2)
+        
         
         let pinCoordinate3 = CLLocationCoordinate2D(latitude: 37.769743, longitude: -122.485961)
         let pinLocation3 = CLLocation(coordinate: pinCoordinate3, altitude: 0)
@@ -108,7 +109,7 @@ class ViewController: UIViewController, MKMapViewDelegate, SceneLocationViewDele
        
         let pinCoordinate5 = CLLocationCoordinate2D(latitude: 37.768064, longitude:  -122.491153)
 //      N Hill   let pinCoordinate5 = CLLocationCoordinate2D(latitude: 37.854546, longitude:  -122.234127)
-        let pinLocation5 = CLLocation(coordinate: pinCoordinate5, altitude: 10)
+        let pinLocation5 = CLLocation(coordinate: pinCoordinate5, altitude: 15)
         let pinImage5 = UIImage(named: "HeinekenStage")!
         let pinLocationNode5 = LocationAnnotationNode(location: pinLocation5, image: pinImage5)
         pinLocationNode1.scaleRelativeToDistance = true
